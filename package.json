@@ -2,18 +2,19 @@
   "name": "xsd",
   "displayName": "XSD to JSON Converter",
   "description": "This will help to convert XSD to JSON",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "pixelbyaj",
   "engines": {
     "vscode": "^1.83.0"
   },
   "categories": [
     "Other"
   ],
-  repository:"https://github.com/pixelbyaj/vsc_xsd.git",
+  "repository":"https://github.com/pixelbyaj/vsc_xsd.git",  
   "icon": "images/xsd-icon.png",
   "activationEvents": [
-    "onCommand:myExtension.runExe",
-    "onLanguage:xml"
+    "onCommand: xsd.xsdtojson",
+    "onLanguage: xml"
   ],
   "main": "./out/extension.js",
   "contributes": {
