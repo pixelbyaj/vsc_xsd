@@ -1,27 +1,51 @@
 {
   "name": "xsd",
   "displayName": "XSD to JSON Converter",
-  "description": "This will help to convert XSD to JSON",
-  "version": "1.0.0",
+  "description": "Ideal to convert XSD to JSON.",
+  "version": "1.2.0",
   "publisher": "pixelbyaj",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixelbyaj/vsc_xsd.git"
+  },
+  "homepage": "https://github.com/pixelbyaj/vsc_xsd/blob/main/README.md",
   "engines": {
     "vscode": "^1.83.0"
   },
   "categories": [
     "Other"
   ],
-  "repository":"https://github.com/pixelbyaj/vsc_xsd.git",  
   "icon": "images/xsd-icon.png",
+  "galleryBanner": {
+    "color": "#373436",
+    "theme": "dark"
+  },
+  "keywords": [
+    "XSD",
+    "ISO 20022",
+    "FinTech",
+    "JSON",
+    "XSDToJSON"
+  ],
+  "preview": false,
   "activationEvents": [
+    "onLanguage:xml",
     "onCommand: xsd.xsdtojson",
-    "onLanguage: xml"
+    "onCommand: xsd.xsdtoform"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "xsd.xsdtojson",
-        "title": "XSD: JSON"
+        "title": "JSON",
+        "category": "XSD"
+      },
+      {
+        "command": "xsd.xsdtoform",
+        "title": "FORM",
+        "category": "XSD"
       }
     ],
     "keybindings": [
@@ -30,8 +54,22 @@
         "key": "ctrl+alt+j",
         "mac": "cmd+alt+j",
         "when": "editorTextFocus"
+      },
+      {
+        "command": "xsd.xsdtoform",
+        "key": "ctrl+alt+f",
+        "mac": "cmd+alt+f",
+        "when": "editorTextFocus"
       }
     ],
+    "views": {
+      "explorer": [
+        {
+          "id": "xsdTree",
+          "name": "XSD Structure"
+        }
+      ]
+    },
     "configuration": {
       "title": "XSD",
       "properties": {
@@ -43,15 +81,21 @@
       }
     }
   },
+  "files": [
+    "app/"
+  ],
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
+    "package": "npx vsce package",
+    "publish": "npx vsce publish",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
+    "@types/express": "^4.17.20",
     "@types/mocha": "^10.0.2",
     "@types/node": "18.x",
     "@types/vscode": "^1.83.1",
@@ -65,6 +109,7 @@
     "vscode": "^1.1.37"
   },
   "dependencies": {
-    "axios": "^1.6.0"
+    "axios": "^1.6.0",
+    "express": "^4.18.2"
   }
 }
