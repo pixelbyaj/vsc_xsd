@@ -13,15 +13,15 @@ This is VS Code Extension to Convert any XSD to JSON
 
 ## Features
 * Convert any XSD to JSON
-* **(New)** View the Angular Form (Powered by [ngx-iso-form](npmjs.com/package/ngx-iso-form))
-* **(New)** Tree View as XSD STRUCTURE in Explorer 
+* Tree View as XSD STRUCTURE in Explorer 
+* **(New)** Offline conversion
 
 ![Alt text](image-1.png)
 
 
 ## Shortcut Keys
 * CTRL+ALT+J (Convert to JSON)
-* CTRL+ALT+F (Convert to Angular Form)
+* CTRL+ALT+F (Convert to XSD Tree Structure)
 
 ## Requirements
 
@@ -29,12 +29,4 @@ It require internet access.
 
 ## Extension Settings
 If you like to add your own custom API URL please add to VS Code settings through the `Xsd.apiURL`.
-
-For example:
-
-This extension contributes the following settings:
-
-* `Xsd.apiURL`: 'Your CUSTOM API URL'.
-
-![Alt text](image.png)
 

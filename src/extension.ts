@@ -2,10 +2,9 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import { Commands } from './models/enums';
-import { xsdToFormHandler, xsdToJSONHandler } from './commands';
+import { xsdToTreeHandler, xsdToJSONHandler } from './commands';
 import { State } from './models';
 import { Logger } from './logging';
-import { stopServer } from './server';
 
 const { commands } = vscode;
 // This method is called when your extension is activated
@@ -19,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 function registerCommands() {
 	commands.registerCommand(Commands.xsdToJson, xsdToJSONHandler);
-	commands.registerCommand(Commands.xsdToForm, xsdToFormHandler);
+	commands.registerCommand(Commands.xsdToForm, xsdToTreeHandler);
 }
 function addSubscriptions() {
 	State.extensionContext.subscriptions.push(Logger.getChannel());
@@ -29,5 +28,4 @@ function addSubscriptions() {
 
 // This method is called when your extension is deactivated
 export function deactivate() { 
-	stopServer();
 }

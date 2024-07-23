@@ -1,4 +1,5 @@
 import * as path from 'path';
+// eslint-disable-next-line @typescript-eslint/naming-convention
 import * as Mocha from 'mocha';
 import * as glob from 'glob';
 
