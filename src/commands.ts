@@ -24,10 +24,6 @@ export async function xsdToJSONHandler() {
         const parseJson = JSON.parse(response);
         const jsonResult = formatJson(parseJson);
         createJsonDocumentWithContent(jsonResult);
-        const treeDataProvider = new XsdTreeProvider(response);
-        const treeView = vscode.window.createTreeView("xsdTree", {
-          treeDataProvider,
-        });
         window.showInformationMessage("Conversion completed successfully.");
       } else {
         window.showErrorMessage(`There is something wrong with the XSD`);
@@ -62,7 +58,6 @@ export async function xsdToTreeHandler() {
     editor.document.languageId === "xml" &&
     editor.document.fileName.endsWith(".xsd")
   ) {
-    window.showInformationMessage("Conversion is in progress...");
     const result = await executeXsdRequest(editor.document.fileName);
     if (result) {
       const parseJson = JSON.parse(result);
@@ -70,12 +65,17 @@ export async function xsdToTreeHandler() {
       const treeView = vscode.window.createTreeView("xsdTree", {
         treeDataProvider,
       });
-      window.showInformationMessage("Conversion has been completed...");
-    } else {
-      window.showInformationMessage(
-        "This command is only available for XSD files."
-      );
     }
     return State.extensionContext;
   }
+}
+
+export async function clearXsdTreeHandler() {
+  const parseJson = undefined as any;
+  const treeDataProvider = new XsdTreeProvider(parseJson);
+  vscode.window.createTreeView("xsdTree", {
+    treeDataProvider,
+  });
+
+  return State.extensionContext;
 }

@@ -23,10 +23,3 @@ This is VS Code Extension to Convert any XSD to JSON
 * CTRL+ALT+J (Convert to JSON)
 * CTRL+ALT+F (Convert to XSD Tree Structure)
 
-## Requirements
-
-It require internet access.
-
-## Extension Settings
-If you like to add your own custom API URL please add to VS Code settings through the `Xsd.apiURL`.
-

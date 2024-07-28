@@ -14,8 +14,6 @@ export default class XsdTreeProvider implements vscode.TreeDataProvider<XsdTreeI
     getChildren(element?: XsdTreeItem): Thenable<XsdTreeItem[]> {
         // Implement this method to return an array of tree items.
         if (!this.xsdJSON) {
-            debugger;
-            vscode.window.showInformationMessage('No dependency in empty workspace');
             return Promise.resolve([]);
         }
 
@@ -25,7 +23,7 @@ export default class XsdTreeProvider implements vscode.TreeDataProvider<XsdTreeI
                 return Promise.resolve([]);
             }
 
-            if (element.node.elements.length > 0) {
+            if (element.node.elements !== null && element.node.elements.length > 0) {
                 return Promise.resolve(
                     this.getNodesFromJson(element.node.elements)
                 );
