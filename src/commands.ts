@@ -61,7 +61,7 @@ export async function xsdToTreeHandler() {
     const result = await executeXsdRequest(editor.document.fileName);
     if (result) {
       const parseJson = JSON.parse(result);
-      const treeDataProvider = new XsdTreeProvider(parseJson);
+      const treeDataProvider = new XsdTreeProvider(parseJson.schemaElement);
       const treeView = vscode.window.createTreeView("xsdTree", {
         treeDataProvider,
       });
