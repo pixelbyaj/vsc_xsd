@@ -2,7 +2,7 @@
   "name": "xsd",
   "displayName": "XSD to JSON Converter",
   "description": "Ideal to convert XSD to JSON.",
-  "version": "1.3.7",
+  "version": "1.4.0",
   "publisher": "pixelbyaj",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
